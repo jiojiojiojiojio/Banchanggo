@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/boardImageFragment">
+
+    <fragment
+        android:id="@+id/boardTextFragment"
+        android:name="com.penelope.banchanggo.ui.board.boardtext.BoardTextFragment"
+        android:label="fragment_board"
+        tools:layout="@layout/fragment_board_text" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.penelope.banchanggo.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_writeFragment"
+            app:destination="@id/writeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeFragment"
+        android:name="com.penelope.banchanggo.ui.write.WriteFragment"
+        android:label="fragment_write"
+        tools:layout="@layout/fragment_write" >
+        <action
+            android:id="@+id/action_writeFragment_to_chatListFragment"
+            app:destination="@id/chatListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="com.penelope.banchanggo.ui.chat.chatlist.ChatListFragment"
+        android:label="fragment_chat_list"
+        tools:layout="@layout/fragment_chat_list" >
+        <action
+            android:id="@+id/action_chatListFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="com.penelope.banchanggo.ui.mypage.mypage.MyPageFragment"
+        android:label="fragment_my_page"
+        tools:layout="@layout/fragment_my_page" >
+        <action
+            android:id="@+id/action_myPageFragment_to_addNoticeFragment"
+            app:destination="@id/addNoticeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.penelope.banchanggo.ui.post.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" >
+        <argument
+            android:name="post"
+            app:argType="com.penelope.banchanggo.data.post.Post" />
+    </fragment>
+    <action android:id="@+id/action_global_postFragment" app:destination="@id/postFragment" />
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.penelope.banchanggo.ui.chat.chatroom.ChatRoomFragment"
+        android:label="fragment_chat_room"
+        tools:layout="@layout/fragment_chat_room" >
+        <argument
+            android:name="chatId"
+            app:argType="string" />
+        <argument
+            android:name="postId"
+            app:argType="string" />
+        <argument
+            android:name="hostId"
+            app:argType="string" />
+        <argument
+            android:name="guestId"
+            app:argType="string" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
+    <action android:id="@+id/action_global_chatRoomFragment" app:destination="@id/chatRoomFragment" />
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.penelope.banchanggo.ui.address.AddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" />
+    <action android:id="@+id/action_global_addressFragment" app:destination="@id/addressFragment" />
+    <fragment
+        android:id="@+id/boardImageFragment"
+        android:name="com.penelope.banchanggo.ui.board.boardimage.BoardImageFragment"
+        android:label="fragment_board_image"
+        tools:layout="@layout/fragment_board_image" >
+        <action
+            android:id="@+id/action_boardImageFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_boardImageFragment_to_boardTextFragment"
+            app:destination="@id/boardTextFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoticeFragment"
+        android:name="com.penelope.banchanggo.ui.mypage.addnotice.AddNoticeFragment"
+        android:label="fragment_add_notice"
+        tools:layout="@layout/fragment_add_notice" />
+</navigation>
